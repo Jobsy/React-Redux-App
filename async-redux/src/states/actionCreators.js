@@ -1,5 +1,8 @@
 import * as types from "./actionTypes";
 
+const vehicleApi = 'https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes?format=json';
+
+
 
 export function increment() {
     return {
