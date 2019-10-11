@@ -1,8 +1,6 @@
+
 import axios from 'axios';
 import * as types from "./actionTypes";
-
-const vehicleApi = 'https://vpic.nhtsa.dot.gov/api/vehicles/GetAllMakes?format=json';
-
 
 
 export function increment() {
@@ -23,17 +21,12 @@ export function reset() {
   }
 }
 
-
-export const getVehicle = () => dispatch => {
-
-  const vehiclePromise = axios.get(vehicleApi)
-
-  Promise.all([vehiclePromise])
-    .then(([vehiclePromiseResponse]) => {
-      const vehicles = vehiclePromiseResponse.data;
-
-      console.log("/////: ", vehicles)
-      dispatch(vehicles);
-
-    })
+export const getPokemon = () => dispatch => {
+  dispatch({ type: types.FETCH_POKEMON_START });
+  axios
+    .get('https://pokeapi.co/api/v2/pokemon/')
+    .then(res =>
+      dispatch({ type: types.FETCH_POKEMON_SUCCESS, payload: res.data.results })
+    )
+    .catch(err => dispatch({ type: types.FETCH_POKEMON_FAIL, payload: err }));
 };
