@@ -1,0 +1,11 @@
+
+
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const RESET = "RESET";
+
+
+export const FETCH_POKEMON_START = 'FETCH_POKEMON_START';
+export const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
+export const FETCH_POKEMON_FAIL = 'FETCH_POKEMON_FAIL';
+
